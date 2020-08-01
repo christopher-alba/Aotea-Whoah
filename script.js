@@ -5,23 +5,42 @@
 // })
 callWeatherApi('252066')
 
-function callWeatherApi (location)  {
+function callWeatherApi(location) {
 
-  let apiKey = 'hoArfRosT1215'
-  fetch(`http://apidev.accuweather.com/currentconditions/v1/${location}.json?language=en&apikey=${apiKey}`)
+  let apiKey = 'Ya4thwap5qk4hSBHXJj5YDq0wJH5slJV'
+  fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${location}.json?language=en&apikey=${apiKey}`)
     .then(response => response.json())
     .then(data => {
       let weatherDiv = document.createElement('div')
-      data.forEach(day => {
-        for (let i = 0; i < Object.keys(day).length; i++) {
-          let weatherDataTitle = document.createElement('h4')
-          let weatherData = document.createElement('p')
-          weatherDataTitle.innerText = Object.keys(day)[i]
-          weatherData.innerText = Object.values(day)[i]
-          // console.log(weatherData);
-          weatherDiv.appendChild(weatherDataTitle)
-          weatherDiv.appendChild(weatherData)
-        }
+      console.log(data);
+      data.DailyForecasts.forEach(day => {
+
+        let weatherDataDateTitle = document.createElement('h4')
+        let weatherDataDate = document.createElement('p')
+
+        weatherDataDateTitle.innerText = "Date"
+        weatherDataDate.innerText = day.Date
+
+        weatherDiv.appendChild(weatherDataDateTitle)
+        weatherDiv.appendChild(weatherDataDate)
+
+        let weatherDataMaxTemperatureTitle = document.createElement('h4')
+        let weatherDataMaxTemperature = document.createElement('p')
+
+        weatherDataMaxTemperatureTitle.innerText = "Maximum Temperature"
+        weatherDataMaxTemperature.innerText = day.Temperature.Maximum.Value
+
+        weatherDiv.appendChild(weatherDataMaxTemperatureTitle)
+        weatherDiv.appendChild(weatherDataMaxTemperature)
+
+        let weatherDataMinTemperatureTitle = document.createElement('h4')
+        let weatherDataMinTemperature = document.createElement('p')
+
+        weatherDataMinTemperatureTitle.innerText = "Minimum Temperature"
+        weatherDataMinTemperature.innerText = day.Temperature.Minimum.Value
+
+        weatherDiv.appendChild(weatherDataMinTemperatureTitle)
+        weatherDiv.appendChild(weatherDataMinTemperature)
         document.getElementById('myList').appendChild(weatherDiv)
       })
     })
