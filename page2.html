@@ -7,7 +7,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Homepage</title>
+  <title>Aotea-Woah</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -51,14 +51,20 @@
         <img src="./hiking.PNG">
         <p class="lead"></p>
         <ul class="list-unstyled">
-          <form onSubmit="{handleSubmit}">
-            <label>
-              <input type="text" onChange="{handleChange}" placeholder="Which place do you want to vist?" />
-            </label>
-          </form>
-          <button type="button" class="btn btn-primary" onclick="document.location.href='page3.html'">
-            Next
-          </button>
+          <div class="dropdown">
+            <form>
+              <label for="cars">Which place do you want to go?</label>
+              <select id="cars" name="cars">
+                <option value="auckland">Auckland</option>
+                <option value="wellington">Wellington</option>
+                <option value="christchurch">Christchurch</option>
+                <option value="hamiliton">Hamiliton</option>
+              </select>
+              <button type="button" class="btn btn-primary" onclick="document.location.href='page3.html'">
+                Next
+              </button>
+            </form>
+          </div>
         </ul>
       </div>
     </div>
