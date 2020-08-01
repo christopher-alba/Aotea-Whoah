@@ -63,4 +63,13 @@ function callWeatherApi(location) {
 
 // });
 
+//JS for activities
+let currWeather = "";
 
+function showActivity(){
+  if (currentWeather != )
+}
+
+window.onload = function() {
+  showActivity();
+}
