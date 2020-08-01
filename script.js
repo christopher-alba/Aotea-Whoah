@@ -42,6 +42,16 @@ function callWeatherApi(location) {
         weatherDiv.appendChild(weatherDataMinTemperatureTitle)
         weatherDiv.appendChild(weatherDataMinTemperature)
         document.getElementById('myList').appendChild(weatherDiv)
+
+        let weatherDataDayTitle = document.createElement('h4')
+        let weatherDataDay = document.createElement('p')
+
+        weatherDataDayTitle.innerText = "Weather Forecast"
+        weatherDataDay.innerText = day.Day.IconPhrase
+
+        weatherDiv.appendChild(weatherDataDayTitle)
+        weatherDiv.appendChild(weatherDataDay)
+        document.getElementById('myList').appendChild(weatherDiv)
       })
     })
 }
