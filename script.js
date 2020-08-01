@@ -1,33 +1,33 @@
-// make call to api once the page loads
-document.onload(() => {
-  let conditions = callApi(location)
-  document.getElementsbyClassName('')[0].text = conditions
-})
+// make call to api once the button on the "where would you like to go?" loads
+// document.getElementsByClassName()[0].addEventListener('click', (location) => {
+//   callWeatherApi(location)
+// })
+callWeatherApi(location)
 
-function callApi(location) {
-  var request = new XMLHttpRequest()
+function callWeatherApi(location) {
 
-  request.open('GET', 'https://ghibliapi.herokuapp.com/films', true)
-  request.onload = function () {
-    // Begin accessing JSON data here
-    var data = JSON.parse(this.response)
-    
-    if (request.status >= 200 && request.status < 400) {
-      data.forEach((movie) => {
-        console.log(movie.title)
+  fetch('https://ghibliapi.herokuapp.com/films')
+    .then(response => response.json())
+    .then(data => {
+      let weatherDiv = document.createElement('div')
+      data.forEach(day => {
+        for (let i = 0; i < Object.keys(day).length; i++) {
+          let weatherDataTitle = document.createElement('h4')
+          let weatherData = document.createElement('p')
+          weatherDataTitle.innerText = Object.keys(day)[i]
+          weatherData.innerText = Object.values(day)[i]
+          // console.log(weatherData);
+          weatherDiv.appendChild(weatherDataTitle)
+          weatherDiv.appendChild(weatherData)
+        }
+        document.getElementById('myList').appendChild(weatherDiv)
       })
-    } else {
-      console.log('error')
-    }
-  }
-
-  request.send()
-
+    })
 }
 
 // for later use
-document.getElementsbyClassName('')[0].addEventListener('click', () => {
+// document.getElementsbyClassName('')[0].addEventListener('click', () => {
 
-});
+// });
 
 
