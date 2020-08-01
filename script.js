@@ -1,12 +1,14 @@
+// require('dotenv').config()
 // make call to api once the button on the "where would you like to go?" loads
 // document.getElementsByClassName()[0].addEventListener('click', (location) => {
 //   callWeatherApi(location)
 // })
-callWeatherApi(location)
+callWeatherApi('252066')
 
-function callWeatherApi(location) {
+function callWeatherApi (location)  {
 
-  fetch('https://ghibliapi.herokuapp.com/films')
+  let apiKey = 'hoArfRosT1215'
+  fetch(`http://apidev.accuweather.com/currentconditions/v1/${location}.json?language=en&apikey=${apiKey}`)
     .then(response => response.json())
     .then(data => {
       let weatherDiv = document.createElement('div')
