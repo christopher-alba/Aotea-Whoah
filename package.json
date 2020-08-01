@@ -1,5 +1,6 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   "name": "aotea-whoah",
   "version": "1.0.0",
   "description": "An app that helps improve NZ tourism industry.",
@@ -22,6 +23,8 @@
   },
   "homepage": "https://github.com/christopher-alba/Aotea-Whoah#readme"
 =======
+=======
+>>>>>>> christopher
     "title": "Bare",
     "name": "startbootstrap-bare",
     "version": "4.2.2",
@@ -61,5 +64,8 @@
         "gulp": "4.0.2",
         "merge-stream": "2.0.0"
     }
+<<<<<<< HEAD
 >>>>>>> a52bcdef34e3199f51af688485fb7a0d7caed715
+=======
+>>>>>>> christopher
 }

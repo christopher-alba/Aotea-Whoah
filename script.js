@@ -11,10 +11,14 @@ function callWeatherApi(location) {
   fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${location}.json?language=en&apikey=${apiKey}`)
     .then(response => response.json())
     .then(data => {
-      let weatherDiv = document.createElement('div')
+      let parentDiv = document.getElementById("table")
+
+
+
       console.log(data);
       data.DailyForecasts.forEach(day => {
-
+        let weatherDiv = document.createElement('div')
+        parentDiv.appendChild(weatherDiv)
         let weatherDataDateTitle = document.createElement('h4')
         let weatherDataDate = document.createElement('p')
 
@@ -41,7 +45,15 @@ function callWeatherApi(location) {
 
         weatherDiv.appendChild(weatherDataMinTemperatureTitle)
         weatherDiv.appendChild(weatherDataMinTemperature)
-        document.getElementById('myList').appendChild(weatherDiv)
+
+        let weatherDataDayTitle = document.createElement('h4')
+        let weatherDataDay = document.createElement('p')
+
+        weatherDataDayTitle.innerText = 'Weather Forecast'
+        weatherDataDay.innerText = day.Day.IconPhrase
+
+        weatherDiv.appendChild(weatherDataDayTitle)
+        weatherDiv.appendChild(weatherDataDay)
       })
     })
 }
