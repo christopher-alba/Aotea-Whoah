@@ -3,22 +3,71 @@
 // document.getElementsByClassName()[0].addEventListener('click', (location) => {
 //   callWeatherApi(location)
 // })
-callWeatherApi('252066')
+let locationCode
 
-function callWeatherApi(location) {
+let locations = document.getElementsByClassName("locationButton")
+console.log(locations);
 
-  let apiKey = 'Ya4thwap5qk4hSBHXJj5YDq0wJH5slJV'
+function clearPreviousWeather() {
+  let days = document.getElementsByClassName("day")
+  for (let i = 0; i < days.length; i++) {
+    days[i].remove()
+  }
+}
+for (let i = 0; i < locations.length; i++) {
+  console.log(locations[i]);
+  locations[i].addEventListener('click', (event) => {
+    console.log(event.target.id);
+    if (event.target.id === 'auckland') {
+      document.getElementById("chosenCity").innerText = "Auckland"
+      locationCode = 252066
+      callWeatherApi(locationCode)
+    } else if (event.target.id === 'wellington') {
+      document.getElementById("chosenCity").innerText = "Wellington"
+      locationCode = 250938
+      callWeatherApi(locationCode)
+    } else if (event.target.id === 'christchurch') {
+      locationCode = 252473
+      document.getElementById("chosenCity").innerText = "Christchurch"
+      callWeatherApi(locationCode)
+    } else {
+      document.getElementById("chosenCity").innerText = "Hamilton"
+      locationCode = 256405
+      callWeatherApi(locationCode)
+    }
+  })
+
+}
+
+if (locationCode) {
+  callWeatherApi(locationCode)
+}
+
+
+function callWeatherApi (location) {
+  clearPreviousWeather()
+  let apiKey = 'RI9GIdT7uLmMcaoIvqmASFW8e2RwPGVB'
+
+  const myHeaders = new Headers()
+
+  // const myRequest = new Request(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${location}.json?language=en&apikey=${apiKey}`, {
+  //   method: 'GET',
+  //   headers: myHeaders,
+  //   mode: 'no-cors',
+  //   cache: 'default',
+  //   origin: '*'
+  // })
+
   fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${location}.json?language=en&apikey=${apiKey}`)
+  // fetch(myRequest)
     .then(response => response.json())
     .then(data => {
       let parentDiv = document.getElementById("table")
-
-
-
       console.log(data);
       data.DailyForecasts.forEach(day => {
         let weatherDiv = document.createElement('div')
         parentDiv.appendChild(weatherDiv)
+        weatherDiv.classList.add("day")
         let weatherDataDateTitle = document.createElement('h4')
         let weatherDataDate = document.createElement('p')
 
@@ -63,13 +112,14 @@ function callWeatherApi(location) {
 
 // });
 
-//JS for activities
-let currWeather = "";
 
-function showActivity(){
-  if (currentWeather != )
-}
+// //JS for activities
+// let currWeather = "";
 
-window.onload = function() {
-  showActivity();
-}
+// function showActivity(){
+//   if (currentWeather != )
+// }
+
+// window.onload = function() {
+//   showActivity();
+// }
