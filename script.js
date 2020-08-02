@@ -35,12 +35,7 @@ for (let i = 0; i < locations.length; i++) {
       document.getElementById("chosenCity").innerText = "Christchurch"
       on();
       callWeatherApi(locationCode)
-      
-    } else {
-      document.getElementById("chosenCity").innerText = "Hamilton"
-      locationCode = 256405
-      on();
-      callWeatherApi(locationCode)
+
     } else if (event.target.id === 'dunedin') {
       locationCode = 255042
       document.getElementById("chosenCity").innerText = "Dunedin"
@@ -70,31 +65,17 @@ for (let i = 0; i < locations.length; i++) {
 
 }
 
-if (locationCode) {
-  callWeatherApi(locationCode)
-}
-
-
-
 function callWeatherApi(location) {
   clearPreviousWeather()
-  let apiKey = 'RI9GIdT7uLmMcaoIvqmASFW8e2RwPGVB'
+  let apiKey = 'hH1ocva3yCBRu7G1oDuGz5SznjeeZr9G'
 
   const myHeaders = new Headers()
-
-  // const myRequest = new Request(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${location}.json?language=en&apikey=${apiKey}`, {
-  //   method: 'GET',
-  //   headers: myHeaders,
-  //   mode: 'no-cors',
-  //   cache: 'default',
-  //   origin: '*'
-  // })
 
   var t = 'ZZZ';
   var i = 1;
 
   fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${location}.json?language=en&apikey=${apiKey}`)
-  // fetch(myRequest)
+    // fetch(myRequest)
     .then(response => response.json())
     .then(data => {
       let parentDiv = document.getElementById("table")
@@ -104,62 +85,62 @@ function callWeatherApi(location) {
         //var test1 = document.getElementById("xxx");
         //test1.innerText = t+i;
 
-        var para1 = document.getElementById("p"+i);
+        var para1 = document.getElementById("p" + i);
         para1.innerText = "Date : " + day.Date;
         i++;
 
-        var para2 = document.getElementById("p"+i);
+        var para2 = document.getElementById("p" + i);
         para2.innerText = "Maximum Temperature : " + day.Temperature.Maximum.Value;
         i++;
 
-        var para3 = document.getElementById("p"+i);
-        para3.innerText = "Minimum Temperature : " + day.Temperature.Minimum.Value;        
+        var para3 = document.getElementById("p" + i);
+        para3.innerText = "Minimum Temperature : " + day.Temperature.Minimum.Value;
         i++;
 
-        var para4 = document.getElementById("p"+i);
+        var para4 = document.getElementById("p" + i);
         para4.innerText = "Condition : " + day.Day.IconPhrase;
-        
+
         i++;
 
-       
-        let weatherDiv = document.createElement('div')
-        parentDiv.appendChild(weatherDiv)
-        weatherDiv.classList.add("day")
-        let weatherDataDateTitle = document.createElement('h4')
-        let weatherDataDate = document.createElement('p')
 
-        weatherDataDateTitle.innerText = "Date"
-        weatherDataDate.innerText = day.Date
+        // let weatherDiv = document.createElement('div')
+        // parentDiv.appendChild(weatherDiv)
+        // weatherDiv.classList.add("day")
+        // let weatherDataDateTitle = document.createElement('h4')
+        // let weatherDataDate = document.createElement('p')
 
-        weatherDiv.appendChild(weatherDataDateTitle)
-        weatherDiv.appendChild(weatherDataDate)
+        // weatherDataDateTitle.innerText = "Date"
+        // weatherDataDate.innerText = day.Date
 
-        let weatherDataMaxTemperatureTitle = document.createElement('h4')
-        let weatherDataMaxTemperature = document.createElement('p')
+        // weatherDiv.appendChild(weatherDataDateTitle)
+        // weatherDiv.appendChild(weatherDataDate)
 
-        weatherDataMaxTemperatureTitle.innerText = "Maximum Temperature"
-        weatherDataMaxTemperature.innerText = ((parseInt(day.Temperature.Maximum.Value) - 32) * (5 / 9)).toFixed(0) + " degC"
+        // let weatherDataMaxTemperatureTitle = document.createElement('h4')
+        // let weatherDataMaxTemperature = document.createElement('p')
 
-        weatherDiv.appendChild(weatherDataMaxTemperatureTitle)
-        weatherDiv.appendChild(weatherDataMaxTemperature)
+        // weatherDataMaxTemperatureTitle.innerText = "Maximum Temperature"
+        // weatherDataMaxTemperature.innerText = ((parseInt(day.Temperature.Maximum.Value) - 32) * (5 / 9)).toFixed(0) + " degC"
 
-        let weatherDataMinTemperatureTitle = document.createElement('h4')
-        let weatherDataMinTemperature = document.createElement('p')
+        // weatherDiv.appendChild(weatherDataMaxTemperatureTitle)
+        // weatherDiv.appendChild(weatherDataMaxTemperature)
 
-        weatherDataMinTemperatureTitle.innerText = "Minimum Temperature"
-        weatherDataMinTemperature.innerText = Math.round((parseInt(day.Temperature.Minimum.Value) - 32) * (5 / 9)) + " degC"
+        // let weatherDataMinTemperatureTitle = document.createElement('h4')
+        // let weatherDataMinTemperature = document.createElement('p')
 
-        weatherDiv.appendChild(weatherDataMinTemperatureTitle)
-        weatherDiv.appendChild(weatherDataMinTemperature)
+        // weatherDataMinTemperatureTitle.innerText = "Minimum Temperature"
+        // weatherDataMinTemperature.innerText = Math.round((parseInt(day.Temperature.Minimum.Value) - 32) * (5 / 9)) + " degC"
 
-        let weatherDataDayTitle = document.createElement('h4')
-        let weatherDataDay = document.createElement('p')
+        // weatherDiv.appendChild(weatherDataMinTemperatureTitle)
+        // weatherDiv.appendChild(weatherDataMinTemperature)
 
-        weatherDataDayTitle.innerText = 'Weather Forecast'
-        weatherDataDay.innerText = day.Day.IconPhrase
+        // let weatherDataDayTitle = document.createElement('h4')
+        // let weatherDataDay = document.createElement('p')
 
-        weatherDiv.appendChild(weatherDataDayTitle)
-        weatherDiv.appendChild(weatherDataDay)
+        // weatherDataDayTitle.innerText = 'Weather Forecast'
+        // weatherDataDay.innerText = day.Day.IconPhrase
+
+        // weatherDiv.appendChild(weatherDataDayTitle)
+        // weatherDiv.appendChild(weatherDataDay)
       })
     })
 }
@@ -167,13 +148,13 @@ function callWeatherApi(location) {
 
 function off() {
   var x = document.getElementById("table");
-    x.style.display = "none";
-  }
+  x.style.display = "none";
+}
 
 function on() {
   var x = document.getElementById("table");
-    x.style.display = "block";
-  }  
+  x.style.display = "block";
+}
 // for later use
 // document.getElementsbyClassName('')[0].addEventListener('click', () => {
 
@@ -189,53 +170,52 @@ function on() {
 
 // window.onload = function() {
 //   showActivity();
-// }
-=======
- //JS for activities
- 
- let currDay = 0;
+// 
+//JS for activities
 
-function currDay1(){
-  if (currDay != 1){
+let currDay = 0;
+
+function currDay1() {
+  if (currDay != 1) {
     currDay = 1;
     reset();
   }
   document.getElementById("activity1").style.display = "block";
 }
 
-function currDay2(){
-  if (currDay != 2){
+function currDay2() {
+  if (currDay != 2) {
     currDay = 2;
     reset();
   }
   document.getElementById("activity2").style.display = "block";
 }
 
-function currDay3(){
-  if (currDay != 3){
+function currDay3() {
+  if (currDay != 3) {
     currDay = 3;
     reset();
   }
   document.getElementById("activity3").style.display = "block";
 }
 
-function currDay4(){
-  if (currDay != 4){
+function currDay4() {
+  if (currDay != 4) {
     currDay = 4;
     reset();
   }
   document.getElementById("activity4").style.display = "block";
 }
 
-function currDay5(){
-  if (currDay != 5){
+function currDay5() {
+  if (currDay != 5) {
     currDay = 5;
     reset();
   }
   document.getElementById("activity5").style.display = "block";
 }
 
-function reset(){
+function reset() {
   document.getElementById("activity1").style.display = "none";
   document.getElementById("activity2").style.display = "none";
   document.getElementById("activity3").style.display = "none";
