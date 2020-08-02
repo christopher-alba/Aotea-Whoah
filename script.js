@@ -127,19 +127,54 @@ function callWeatherApi(location) {
     })
 }
 
-// for later use
-// document.getElementsbyClassName('')[0].addEventListener('click', () => {
+ //JS for activities
+ 
+ let currDay = 0;
 
-// });
+function currDay1(){
+  if (currDay != 1){
+    currDay = 1;
+    reset();
+  }
+  document.getElementById("activity1").style.display = "block";
+}
 
+function currDay2(){
+  if (currDay != 2){
+    currDay = 2;
+    reset();
+  }
+  document.getElementById("activity2").style.display = "block";
+}
 
-// //JS for activities
-// let currWeather = "";
+function currDay3(){
+  if (currDay != 3){
+    currDay = 3;
+    reset();
+  }
+  document.getElementById("activity3").style.display = "block";
+}
 
-// function showActivity(){
-//   if (currentWeather != )
-// }
+function currDay4(){
+  if (currDay != 4){
+    currDay = 4;
+    reset();
+  }
+  document.getElementById("activity4").style.display = "block";
+}
 
-// window.onload = function() {
-//   showActivity();
-// }
+function currDay5(){
+  if (currDay != 5){
+    currDay = 5;
+    reset();
+  }
+  document.getElementById("activity5").style.display = "block";
+}
+
+function reset(){
+  document.getElementById("activity1").style.display = "none";
+  document.getElementById("activity2").style.display = "none";
+  document.getElementById("activity3").style.display = "none";
+  document.getElementById("activity4").style.display = "none";
+  document.getElementById("activity5").style.display = "none";
+}
