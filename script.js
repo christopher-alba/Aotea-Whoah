@@ -44,7 +44,7 @@ if (locationCode) {
 }
 
 
-function callWeatherApi (location) {
+function callWeatherApi(location) {
   clearPreviousWeather()
   let apiKey = 'RI9GIdT7uLmMcaoIvqmASFW8e2RwPGVB'
 
@@ -58,8 +58,8 @@ function callWeatherApi (location) {
   //   origin: '*'
   // })
 
-  fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${location}.json?language=en&apikey=${apiKey}`)
-  // fetch(myRequest)
+  fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${location}.json?unit=c&language=en&apikey=${apiKey}`)
+    // fetch(myRequest)
     .then(response => response.json())
     .then(data => {
       let parentDiv = document.getElementById("table")
@@ -81,7 +81,7 @@ function callWeatherApi (location) {
         let weatherDataMaxTemperature = document.createElement('p')
 
         weatherDataMaxTemperatureTitle.innerText = "Maximum Temperature"
-        weatherDataMaxTemperature.innerText = day.Temperature.Maximum.Value
+        weatherDataMaxTemperature.innerText = ((parseInt(day.Temperature.Maximum.Value) - 32) * (5 / 9)).toFixed(0) + " degC"
 
         weatherDiv.appendChild(weatherDataMaxTemperatureTitle)
         weatherDiv.appendChild(weatherDataMaxTemperature)
@@ -90,7 +90,7 @@ function callWeatherApi (location) {
         let weatherDataMinTemperature = document.createElement('p')
 
         weatherDataMinTemperatureTitle.innerText = "Minimum Temperature"
-        weatherDataMinTemperature.innerText = day.Temperature.Minimum.Value
+        weatherDataMinTemperature.innerText = Math.round((parseInt(day.Temperature.Minimum.Value) - 32) * (5 / 9)) + " degC"
 
         weatherDiv.appendChild(weatherDataMinTemperatureTitle)
         weatherDiv.appendChild(weatherDataMinTemperature)
