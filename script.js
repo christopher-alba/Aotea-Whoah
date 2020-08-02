@@ -8,7 +8,7 @@ let locationCode
 let locations = document.getElementsByClassName("locationButton")
 console.log(locations);
 
-function clearPreviousWeather () {
+function clearPreviousWeather() {
   let days = document.getElementsByClassName("day")
   for (let i = 0; i < days.length; i++) {
     days[i].remove()
@@ -47,7 +47,19 @@ if (locationCode) {
 function callWeatherApi(location) {
   clearPreviousWeather()
   let apiKey = 'Ya4thwap5qk4hSBHXJj5YDq0wJH5slJV'
-  fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${location}.json?language=en&apikey=${apiKey}`)
+
+  const myHeaders = new Headers();
+
+  const myRequest = new Request(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${location}.json?language=en&apikey=${apiKey}`, {
+    method: 'GET',
+    headers: myHeaders,
+    mode: 'no-cors',
+    cache: 'default',
+    origin: '*'
+  });
+
+  // fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${location}.json?language=en&apikey=${apiKey}`)
+  fetch(myRequest)
     .then(response => response.json())
     .then(data => {
       let parentDiv = document.getElementById("table")
