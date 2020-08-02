@@ -36,11 +36,6 @@ for (let i = 0; i < locations.length; i++) {
       on();
       callWeatherApi(locationCode)
       
-    } else {
-      document.getElementById("chosenCity").innerText = "Hamilton"
-      locationCode = 256405
-      on();
-      callWeatherApi(locationCode)
     } else if (event.target.id === 'dunedin') {
       locationCode = 255042
       document.getElementById("chosenCity").innerText = "Dunedin"
@@ -174,64 +169,34 @@ function on() {
   var x = document.getElementById("table");
     x.style.display = "block";
   }  
-// for later use
-// document.getElementsbyClassName('')[0].addEventListener('click', () => {
-
-// });
-
-
-// //JS for activities
-// let currWeather = "";
-
-// function showActivity(){
-//   if (currentWeather != )
-// }
-
-// window.onload = function() {
-//   showActivity();
-// }
-=======
- //JS for activities
  
- let currDay = 0;
+
+//Andy's Section
+
+let currDay = 0;
 
 function showDay1(){
-  if (currDay != 1){
-    currDay = 1;
-    reset();
-  }
+  reset();
   document.getElementById("activity1").style.display = "block";
 } 
 
 function showDay2(){
-  if (currDay != 2){
-    currDay = 2;
-    reset();
-  }
+  reset();
   document.getElementById("activity2").style.display = "block";
 }
 
 function showDay3(){
-  if (currDay != 3){
-    currDay = 3;
-    reset();
-  }
+  reset();
   document.getElementById("activity3").style.display = "block";
 }
 
 function showDay4(){
-  if (currDay != 4){
-    currDay = 4;
-    reset();
-  }
+  reset();
   document.getElementById("activity4").style.display = "block";
 }
 
 function showDay5(){
-  if (currDay != 5){
-    currDay = 5;
-    reset();
-  }
+  reset();
   document.getElementById("activity5").style.display = "block";
 }
 
