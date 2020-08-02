@@ -44,7 +44,7 @@ if (locationCode) {
 }
 
 
-function callWeatherApi (location) {
+function callWeatherApi(location) {
   clearPreviousWeather()
   let apiKey = 'RI9GIdT7uLmMcaoIvqmASFW8e2RwPGVB'
 
@@ -58,8 +58,8 @@ function callWeatherApi (location) {
   //   origin: '*'
   // })
 
-  fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${location}.json?language=en&apikey=${apiKey}`)
-  // fetch(myRequest)
+  fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${location}.json?unit=c&language=en&apikey=${apiKey}`)
+    // fetch(myRequest)
     .then(response => response.json())
     .then(data => {
       let parentDiv = document.getElementById("table")
@@ -81,7 +81,7 @@ function callWeatherApi (location) {
         let weatherDataMaxTemperature = document.createElement('p')
 
         weatherDataMaxTemperatureTitle.innerText = "Maximum Temperature"
-        weatherDataMaxTemperature.innerText = day.Temperature.Maximum.Value
+        weatherDataMaxTemperature.innerText = ((parseInt(day.Temperature.Maximum.Value) - 32) * (5 / 9)).toFixed(0) + " degC"
 
         weatherDiv.appendChild(weatherDataMaxTemperatureTitle)
         weatherDiv.appendChild(weatherDataMaxTemperature)
@@ -90,7 +90,7 @@ function callWeatherApi (location) {
         let weatherDataMinTemperature = document.createElement('p')
 
         weatherDataMinTemperatureTitle.innerText = "Minimum Temperature"
-        weatherDataMinTemperature.innerText = day.Temperature.Minimum.Value
+        weatherDataMinTemperature.innerText = Math.round((parseInt(day.Temperature.Minimum.Value) - 32) * (5 / 9)) + " degC"
 
         weatherDiv.appendChild(weatherDataMinTemperatureTitle)
         weatherDiv.appendChild(weatherDataMinTemperature)
@@ -107,19 +107,54 @@ function callWeatherApi (location) {
     })
 }
 
-// for later use
-// document.getElementsbyClassName('')[0].addEventListener('click', () => {
+ //JS for activities
+ 
+ let currDay = 0;
 
-// });
+function currDay1(){
+  if (currDay != 1){
+    currDay = 1;
+    reset();
+  }
+  document.getElementById("activity1").style.display = "block";
+}
 
+function currDay2(){
+  if (currDay != 2){
+    currDay = 2;
+    reset();
+  }
+  document.getElementById("activity2").style.display = "block";
+}
 
-// //JS for activities
-// let currWeather = "";
+function currDay3(){
+  if (currDay != 3){
+    currDay = 3;
+    reset();
+  }
+  document.getElementById("activity3").style.display = "block";
+}
 
-// function showActivity(){
-//   if (currentWeather != )
-// }
+function currDay4(){
+  if (currDay != 4){
+    currDay = 4;
+    reset();
+  }
+  document.getElementById("activity4").style.display = "block";
+}
 
-// window.onload = function() {
-//   showActivity();
-// }
+function currDay5(){
+  if (currDay != 5){
+    currDay = 5;
+    reset();
+  }
+  document.getElementById("activity5").style.display = "block";
+}
+
+function reset(){
+  document.getElementById("activity1").style.display = "none";
+  document.getElementById("activity2").style.display = "none";
+  document.getElementById("activity3").style.display = "none";
+  document.getElementById("activity4").style.display = "none";
+  document.getElementById("activity5").style.display = "none";
+}
