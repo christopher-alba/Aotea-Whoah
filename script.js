@@ -35,7 +35,7 @@ for (let i = 0; i < locations.length; i++) {
       document.getElementById("chosenCity").innerText = "Christchurch"
       on();
       callWeatherApi(locationCode)
-      
+
     } else if (event.target.id === 'dunedin') {
       locationCode = 255042
       document.getElementById("chosenCity").innerText = "Dunedin"
@@ -65,58 +65,41 @@ for (let i = 0; i < locations.length; i++) {
 
 }
 
-if (locationCode) {
-  callWeatherApi(locationCode)
-}
-
-
-
 function callWeatherApi(location) {
   clearPreviousWeather()
-  let apiKey = 'RI9GIdT7uLmMcaoIvqmASFW8e2RwPGVB'
+  let apiKey = 'hH1ocva3yCBRu7G1oDuGz5SznjeeZr9G'
 
   const myHeaders = new Headers()
 
-  // const myRequest = new Request(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${location}.json?language=en&apikey=${apiKey}`, {
-  //   method: 'GET',
-  //   headers: myHeaders,
-  //   mode: 'no-cors',
-  //   cache: 'default',
-  //   origin: '*'
-  // })
-
-  var t = 'ZZZ';
   var i = 1;
 
   fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${location}.json?language=en&apikey=${apiKey}`)
-  // fetch(myRequest)
+    // fetch(myRequest)
     .then(response => response.json())
     .then(data => {
       let parentDiv = document.getElementById("table")
       console.log(data);
       data.DailyForecasts.forEach(day => {
 
-        //var test1 = document.getElementById("xxx");
-        //test1.innerText = t+i;
 
-        var para1 = document.getElementById("p"+i);
+        var para1 = document.getElementById("p" + i);
         para1.innerText = "Date : " + day.Date;
         i++;
 
-        var para2 = document.getElementById("p"+i);
-        para2.innerText = "Maximum Temperature : " + day.Temperature.Maximum.Value;
+        var para2 = document.getElementById("p" + i);
+        para2.innerText = "Maximum Temperature : " + ((parseInt(day.Temperature.Maximum.Value) - 32) * (5 / 9)).toFixed(0) + " degC"
         i++;
 
-        var para3 = document.getElementById("p"+i);
-        para3.innerText = "Minimum Temperature : " + day.Temperature.Minimum.Value;        
+        var para3 = document.getElementById("p" + i);
+        para3.innerText = "Minimum Temperature : " + Math.round((parseInt(day.Temperature.Minimum.Value) - 32) * (5 / 9)) + " degC"
         i++;
 
-        var para4 = document.getElementById("p"+i);
+        var para4 = document.getElementById("p" + i);
         para4.innerText = "Condition : " + day.Day.IconPhrase;
-        
+
         i++;
 
-       
+
         let weatherDiv = document.createElement('div')
         parentDiv.appendChild(weatherDiv)
         weatherDiv.classList.add("day")
@@ -162,45 +145,45 @@ function callWeatherApi(location) {
 
 function off() {
   var x = document.getElementById("table");
-    x.style.display = "none";
-  }
+  x.style.display = "none";
+}
 
 function on() {
   var x = document.getElementById("table");
-    x.style.display = "block";
-  }  
- 
+  x.style.display = "block";
+}
+
 
 //Andy's Section
 
 let currDay = 0;
 
-function showDay1(){
+function showDay1() {
   reset();
   document.getElementById("activity1").style.display = "block";
-} 
+}
 
-function showDay2(){
+function showDay2() {
   reset();
   document.getElementById("activity2").style.display = "block";
 }
 
-function showDay3(){
+function showDay3() {
   reset();
   document.getElementById("activity3").style.display = "block";
 }
 
-function showDay4(){
+function showDay4() {
   reset();
   document.getElementById("activity4").style.display = "block";
 }
 
-function showDay5(){
+function showDay5() {
   reset();
   document.getElementById("activity5").style.display = "block";
 }
 
-function reset(){
+function reset() {
   document.getElementById("activity1").style.display = "none";
   document.getElementById("activity2").style.display = "none";
   document.getElementById("activity3").style.display = "none";
