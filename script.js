@@ -111,15 +111,15 @@ function callWeatherApi(location) {
  
  let currDay = 0;
 
-function currDay1(){
+function showDay1(){
   if (currDay != 1){
     currDay = 1;
     reset();
   }
   document.getElementById("activity1").style.display = "block";
-}
+} 
 
-function currDay2(){
+function showDay2(){
   if (currDay != 2){
     currDay = 2;
     reset();
@@ -127,7 +127,7 @@ function currDay2(){
   document.getElementById("activity2").style.display = "block";
 }
 
-function currDay3(){
+function showDay3(){
   if (currDay != 3){
     currDay = 3;
     reset();
@@ -135,7 +135,7 @@ function currDay3(){
   document.getElementById("activity3").style.display = "block";
 }
 
-function currDay4(){
+function showDay4(){
   if (currDay != 4){
     currDay = 4;
     reset();
@@ -143,7 +143,7 @@ function currDay4(){
   document.getElementById("activity4").style.display = "block";
 }
 
-function currDay5(){
+function showDay5(){
   if (currDay != 5){
     currDay = 5;
     reset();
