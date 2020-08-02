@@ -111,3 +111,15 @@ function callWeatherApi (location) {
 // document.getElementsbyClassName('')[0].addEventListener('click', () => {
 
 // });
+
+
+//JS for activities
+let currWeather = "";
+
+function showActivity(){
+  if (currentWeather != )
+}
+
+window.onload = function() {
+  showActivity();
+}
