@@ -153,63 +153,34 @@ function on() {
   var x = document.getElementById("table");
   x.style.display = "block";
 }
-// for later use
-// document.getElementsbyClassName('')[0].addEventListener('click', () => {
-
-// });
 
 
-// //JS for activities
-// let currWeather = "";
-
-// function showActivity(){
-//   if (currentWeather != )
-// }
-
-// window.onload = function() {
-//   showActivity();
-// 
-//JS for activities
+//Andy's Section
 
 let currDay = 0;
 
-function currDay1() {
-  if (currDay != 1) {
-    currDay = 1;
-    reset();
-  }
+function showDay1() {
+  reset();
   document.getElementById("activity1").style.display = "block";
 }
 
-function currDay2() {
-  if (currDay != 2) {
-    currDay = 2;
-    reset();
-  }
+function showDay2() {
+  reset();
   document.getElementById("activity2").style.display = "block";
 }
 
-function currDay3() {
-  if (currDay != 3) {
-    currDay = 3;
-    reset();
-  }
+function showDay3() {
+  reset();
   document.getElementById("activity3").style.display = "block";
 }
 
-function currDay4() {
-  if (currDay != 4) {
-    currDay = 4;
-    reset();
-  }
+function showDay4() {
+  reset();
   document.getElementById("activity4").style.display = "block";
 }
 
-function currDay5() {
-  if (currDay != 5) {
-    currDay = 5;
-    reset();
-  }
+function showDay5() {
+  reset();
   document.getElementById("activity5").style.display = "block";
 }
 
