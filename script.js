@@ -82,8 +82,6 @@ function callWeatherApi(location) {
       console.log(data);
       data.DailyForecasts.forEach(day => {
 
-        //var test1 = document.getElementById("xxx");
-        //test1.innerText = t+i;
 
         var para1 = document.getElementById("p" + i);
         para1.innerText = "Date : " + day.Date;
