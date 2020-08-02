@@ -5,11 +5,17 @@
     display: block;
 }
 #activity3 {
-    display: block;
+    display: none;
 }
 #activity4 {
-    display: block;
+    display: none;
 }
 #activity5 {
-    display: block;
+    display: none;
+}
+#activity-menu {
+    display: flex;
+    flex-direction: column;
+    
+
 }
