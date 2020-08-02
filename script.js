@@ -113,13 +113,13 @@ function callWeatherApi (location) {
 // });
 
 
-//JS for activities
-let currWeather = "";
+// //JS for activities
+// let currWeather = "";
 
-function showActivity(){
-  if (currentWeather != )
-}
+// function showActivity(){
+//   if (currentWeather != )
+// }
 
-window.onload = function() {
-  showActivity();
-}
+// window.onload = function() {
+//   showActivity();
+// }
