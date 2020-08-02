@@ -30,6 +30,26 @@ for (let i = 0; i < locations.length; i++) {
       locationCode = 252473
       document.getElementById("chosenCity").innerText = "Christchurch"
       callWeatherApi(locationCode)
+    } else if (event.target.id === 'dunedin') {
+      locationCode = 255042
+      document.getElementById("chosenCity").innerText = "Dunedin"
+      callWeatherApi(locationCode)
+    } else if (event.target.id === 'invercargil') {
+      locationCode = 250343
+      document.getElementById("chosenCity").innerText = "Invercargil"
+      callWeatherApi(locationCode)
+    } else if (event.target.id === 'gisborne') {
+      locationCode = 248308
+      document.getElementById("chosenCity").innerText = "Gisborne"
+      callWeatherApi(locationCode)
+    } else if (event.target.id === 'napier') {
+      locationCode = 248572
+      document.getElementById("chosenCity").innerText = "Napier"
+      callWeatherApi(locationCode)
+    } else if (event.target.id === 'whangarei') {
+      locationCode = 249764
+      document.getElementById("chosenCity").innerText = "Whangarei"
+      callWeatherApi(locationCode)
     } else {
       document.getElementById("chosenCity").innerText = "Hamilton"
       locationCode = 256405
