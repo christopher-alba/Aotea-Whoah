@@ -71,7 +71,6 @@ function callWeatherApi(location) {
 
   const myHeaders = new Headers()
 
-  var t = 'ZZZ';
   var i = 1;
 
   fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${location}.json?language=en&apikey=${apiKey}`)
@@ -88,11 +87,11 @@ function callWeatherApi(location) {
         i++;
 
         var para2 = document.getElementById("p" + i);
-        para2.innerText = "Maximum Temperature : " + day.Temperature.Maximum.Value;
+        para2.innerText = "Maximum Temperature : " + ((parseInt(day.Temperature.Maximum.Value) - 32) * (5 / 9)).toFixed(0) + " degC"
         i++;
 
         var para3 = document.getElementById("p" + i);
-        para3.innerText = "Minimum Temperature : " + day.Temperature.Minimum.Value;
+        para3.innerText = "Minimum Temperature : " + Math.round((parseInt(day.Temperature.Minimum.Value) - 32) * (5 / 9)) + " degC"
         i++;
 
         var para4 = document.getElementById("p" + i);
@@ -101,44 +100,44 @@ function callWeatherApi(location) {
         i++;
 
 
-        // let weatherDiv = document.createElement('div')
-        // parentDiv.appendChild(weatherDiv)
-        // weatherDiv.classList.add("day")
-        // let weatherDataDateTitle = document.createElement('h4')
-        // let weatherDataDate = document.createElement('p')
+        let weatherDiv = document.createElement('div')
+        parentDiv.appendChild(weatherDiv)
+        weatherDiv.classList.add("day")
+        let weatherDataDateTitle = document.createElement('h4')
+        let weatherDataDate = document.createElement('p')
 
-        // weatherDataDateTitle.innerText = "Date"
-        // weatherDataDate.innerText = day.Date
+        weatherDataDateTitle.innerText = "Date"
+        weatherDataDate.innerText = day.Date
 
-        // weatherDiv.appendChild(weatherDataDateTitle)
-        // weatherDiv.appendChild(weatherDataDate)
+        weatherDiv.appendChild(weatherDataDateTitle)
+        weatherDiv.appendChild(weatherDataDate)
 
-        // let weatherDataMaxTemperatureTitle = document.createElement('h4')
-        // let weatherDataMaxTemperature = document.createElement('p')
+        let weatherDataMaxTemperatureTitle = document.createElement('h4')
+        let weatherDataMaxTemperature = document.createElement('p')
 
-        // weatherDataMaxTemperatureTitle.innerText = "Maximum Temperature"
-        // weatherDataMaxTemperature.innerText = ((parseInt(day.Temperature.Maximum.Value) - 32) * (5 / 9)).toFixed(0) + " degC"
+        weatherDataMaxTemperatureTitle.innerText = "Maximum Temperature"
+        weatherDataMaxTemperature.innerText = ((parseInt(day.Temperature.Maximum.Value) - 32) * (5 / 9)).toFixed(0) + " degC"
 
-        // weatherDiv.appendChild(weatherDataMaxTemperatureTitle)
-        // weatherDiv.appendChild(weatherDataMaxTemperature)
+        weatherDiv.appendChild(weatherDataMaxTemperatureTitle)
+        weatherDiv.appendChild(weatherDataMaxTemperature)
 
-        // let weatherDataMinTemperatureTitle = document.createElement('h4')
-        // let weatherDataMinTemperature = document.createElement('p')
+        let weatherDataMinTemperatureTitle = document.createElement('h4')
+        let weatherDataMinTemperature = document.createElement('p')
 
-        // weatherDataMinTemperatureTitle.innerText = "Minimum Temperature"
-        // weatherDataMinTemperature.innerText = Math.round((parseInt(day.Temperature.Minimum.Value) - 32) * (5 / 9)) + " degC"
+        weatherDataMinTemperatureTitle.innerText = "Minimum Temperature"
+        weatherDataMinTemperature.innerText = Math.round((parseInt(day.Temperature.Minimum.Value) - 32) * (5 / 9)) + " degC"
 
-        // weatherDiv.appendChild(weatherDataMinTemperatureTitle)
-        // weatherDiv.appendChild(weatherDataMinTemperature)
+        weatherDiv.appendChild(weatherDataMinTemperatureTitle)
+        weatherDiv.appendChild(weatherDataMinTemperature)
 
-        // let weatherDataDayTitle = document.createElement('h4')
-        // let weatherDataDay = document.createElement('p')
+        let weatherDataDayTitle = document.createElement('h4')
+        let weatherDataDay = document.createElement('p')
 
-        // weatherDataDayTitle.innerText = 'Weather Forecast'
-        // weatherDataDay.innerText = day.Day.IconPhrase
+        weatherDataDayTitle.innerText = 'Weather Forecast'
+        weatherDataDay.innerText = day.Day.IconPhrase
 
-        // weatherDiv.appendChild(weatherDataDayTitle)
-        // weatherDiv.appendChild(weatherDataDay)
+        weatherDiv.appendChild(weatherDataDayTitle)
+        weatherDiv.appendChild(weatherDataDay)
       })
     })
 }
