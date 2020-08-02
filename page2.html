@@ -52,20 +52,20 @@
         <p class="lead"></p>
         <ul class="list-unstyled">
           <div class="dropdown">
-            <form>
               <label for="cars">Which place do you want to go?</label>
-              <select id="cars" name="cars">
-                <option value="auckland">Auckland</option>
-                <option value="wellington">Wellington</option>
-                <option value="christchurch">Christchurch</option>
-                <option value="hamiliton">Hamiliton</option>
-              </select>
-              <button type="button" class="btn btn-primary" onclick="document.location.href='page3.html'">
+                <button class="locationButton" id="auckland">Auckland</button>
+                <button class="locationButton" id="wellington">Wellington</button>
+                <button class="locationButton" id="christchurch">Christchurch</button>
+                <button class="locationButton" id="hamilton">Hamiliton</button>
+              <!-- <button type="button" class="btn btn-primary" onclick="document.location.href='page3.html'">
                 Next
-              </button>
-            </form>
+              </button> -->
           </div>
         </ul>
+        <h1 id="chosenCity"></h1>
+        <div id="table">
+          
+        </div>
       </div>
     </div>
   </div>
@@ -73,6 +73,7 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.slim.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./script.js"></script>
 </body>
 
 </html>
